@@ -8,6 +8,8 @@ b-cov
 *.gz
 *.zip
 
+.ghost/*
+
 pids
 logs
 results
@@ -22,3 +24,5 @@ projectFilesBackup
 .DS_Store
 
 dist/
+
+assets/built

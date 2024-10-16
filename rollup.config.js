@@ -11,6 +11,7 @@ import terser from '@rollup/plugin-terser';
 // CSS
 // Enable the PostCSS preprocessor
 import postcss from 'rollup-plugin-postcss';
+import tailwind from '@tailwindcss/postcss';
 // Use @import to include other CSS files
 import atImport from 'postcss-import';
 // Use the latest CSS features in your Rollup bundle
@@ -38,14 +39,15 @@ export default defineConfig({
             sourceMap: true,
             plugins: [
                 atImport(),
-                postcssPresetEnv({})
+                postcssPresetEnv({}),
+                tailwind()
             ], 
             minimize: true,
         }),
         process.env.BUILD !== "production" && livereload({
             watch: resolve('.'),
             extraExts: ['hbs'],
-            exclusions: [resolve('node_modules')]
+            exclusions: [resolve('node_modules'), resolve('assets/built')]
         }),
     ]
 })
