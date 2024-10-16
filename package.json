@@ -18,9 +18,9 @@
     "pretest": "npm run build"
   },
   "author": {
-    "name": "Ghost Foundation",
-    "email": "hello@ghost.org",
-    "url": "https://ghost.org"
+    "name": "blue linden",
+    "email": "blue@linden.rocks",
+    "url": "https://blue.linden.rocks"
   },
   "gpm": {
     "type": "theme",
@@ -94,6 +94,11 @@
         "type": "color",
         "default": "#663311",
         "description": "Used as link color in light mode, and as a subtle accent color in dark mode."
+      },
+      "use_dark_by_default": {
+        "type": "boolean",
+        "default": false,
+        "description": "If enabled, users will see the Dark Mode version of the website when first arriving, if they don't use a color scheme set by their browser."
       }
     },
     "image_sizes": {

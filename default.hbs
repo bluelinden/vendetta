@@ -7,13 +7,58 @@
     <link rel="stylesheet" href="{{asset "built/index.css"}}" />
     <script src="{{asset "built/index.js"}}" defer></script>
 
+    {{!-- style bits yay --}}
+    <style>
+        :root {
+          {{#if @custom.light_primary_color}}
+          --light-primary: {{@custom.light_primary_color}};
+          {{/if}}
+          {{#if @custom.dark_primary_color}}
+          --dark-primary: {{@custom.dark_primary_color}};
+          {{/if}}
+          {{#if @custom.light_secondary_color}}
+          --light-secondary: {{@custom.light_secondary_color}};
+          {{/if}}
+          {{#if @custom.dark_secondary_color}}
+          --dark-secondary: {{@custom.dark_secondary_color}};
+          {{/if}}
+          {{#if @custom.light_splash_color}}
+          --light-splash: {{@custom.light_splash_color}};
+          {{/if}}
+          {{#if @custom.dark_splash_color}}
+          --dark-splash: {{@custom.dark_splash_color}};
+          {{/if}}
+        }
+
+        body {
+          --acc: {{@site.accent_color}};
+        }
+
+        :root {
+          --fg1: var(--dark-primary);
+          --bg1: var(--light-primary);
+          --fg2: var(--dark-secondary);
+          --bg2: var(--light-secondary);
+          --fga: var(--dark-splash);
+          --bga: var(--light-splash);
+        }
+        body.dark {
+          --fg1: var(--light-primary);
+          --bg1: var(--dark-primary);
+          --fg2: var(--light-secondary);
+          --bg2: var(--dark-secondary);
+          --fga: var(--light-splash);
+          --bga: var(--dark-splash);
+        }
+    </style>
+
     <title>{{meta_title}}</title>
 
     {{ghost_head}}
     {{!-- Outputs important meta data and settings, should always be in <head> --}}
 
 </head>
-<body class="{{body_class}}">
+<body class="{{body_class}} {{#if @custom.use_dark_by_default}}dark{{/if}}">
 <div class="gh-viewport">
 
 <header id="gh-head" class="gh-head">
